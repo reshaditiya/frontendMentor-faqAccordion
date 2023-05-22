@@ -1,40 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+		<title>Frontend Mentor | FAQ Accordion Card</title>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | FAQ Accordion Card</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-  How many team members can I invite?
-  You can invite up to 2 additional users on the Free plan. There is no limit on 
-  team members for the Premium plan.
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@unocss/reset/tailwind.min.css"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/@unocss/runtime"></script>
+		<script>
+			const config = window.__unocss_runtime.uno.config
+			const configColor = config.theme.colors
+			const configFamily = config.theme.fontFamily
 
-  What is the maximum file upload size?
-  No more than 2GB. All files in your account must fit your allotted storage space.
+			configColor.desaturatedBlue = "#1d1e35"
+			configColor.softRed = "#bf342a"
+			configColor.softViolet = "#af67e9"
+			configColor.softBlue = "#6565e7"
+			configColor.darkGray = "#4a4b5e"
+			configColor.grayBlue = "#787887"
+			configColor.lightGrayBlue = "#e7e7e9"
+			configFamily.kumbhSans = '"Kumbh Sans",' + configFamily.mono
+		</script>
+		<style>
+			[un-cloak] {
+				display: none;
+			}
+		</style>
 
-  How do I reset my password?
-  Click “Forgot password” from the login page or “Change password” from your profile page.
-  A reset link will be emailed to you.
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+		></script>
+		<script src="//unpkg.com/alpinejs" defer></script>
+		<script>
+			document.addEventListener("alpine:init", () => {
+				Alpine.data("faq", () => ({
+					currOpen: 2,
+					questions: [
+						{
+							id: 1,
+							q: "How many team members can I invite?",
+							a: "You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.",
+						},
+						{
+							id: 2,
+							q: "What is the maximum file upload size?",
+							a: "No more than 2GB. All files in your account must fit your allotted storage space.",
+						},
+						{
+							id: 3,
+							q: "How do I reset my password?",
+							a: "Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you.",
+						},
+						{
+							id: 4,
+							q: "Can I cancel my subscription?",
+							a: "Yes! Send us a message and we’ll process your request no questions asked.",
+						},
+						{
+							id: 5,
+							q: "Do you provide additional support?",
+							a: "Chat and email support is available 24/7. Phone lines are open during normal business hours.",
+						},
+					],
+				}))
+			})
+		</script>
+	</head>
+	<body
+		class="font-kumbhSans text-3.3 flex justify-center bg-fuchsia-700 text-gray-blue"
+		un-cloak
+	>
+		<div class="w-81.8 p-6 pt-16 pb-12 bg-white relative rounded-6.2 mt-37">
+			<img
+				src="images/illustration-woman-online-mobile.svg"
+				alt=""
+				class="absolute w-59 -top-27 mx-auto inset-0"
+			/>
+			<h1 class="text-8 font-700 mt-15.5 text-center text-dark-gray">
+				FAQ
+			</h1>
+			<div class="mt-2.6">
+				<template x-data="faq" x-for="question in questions">
+					<div
+						class="py-3.8 border-b bt-light-gray-blue cursor-pointer"
+						:key="question.id"
+						x-on:click="currOpen = question.id"
+					>
+						<span
+							x-text="question.q"
+							x-bind:class="currOpen === question.id && 'font-700 text-dark-gray'"
+							class="select-none cursor-pointer"
+						></span>
+						<p
+							x-show="currOpen === question.id"
+							x-text="question.a"
+							class="mt-2.7 text-3"
+							x-collapse
+						></p>
+					</div>
+				</template>
+			</div>
+		</div>
 
-  Can I cancel my subscription?
-  Yes! Send us a message and we’ll process your request no questions asked.
-
-  Do you provide additional support?
-  Chat and email support is available 24/7. Phone lines are open during normal business hours.
-
-  <div class="attribution">
+		<!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+  </div> -->
+	</body>
 </html>
