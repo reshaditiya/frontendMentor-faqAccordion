@@ -1,158 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
-    <title>Frontend Mentor | FAQ Accordion Card</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+		<title>Frontend Mentor | FAQ Accordion Card</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@unocss/reset/tailwind.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/attributify.global.js"></script>
-    <script>
-      const config = window.__unocss_runtime.uno.config;
-      const configColor = config.theme.colors;
-      const configFamily = config.theme.fontFamily;
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@unocss/reset/tailwind.min.css"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/attributify.global.js"></script>
+		<script>
+			const config = window.__unocss_runtime.uno.config
+			const configColor = config.theme.colors
+			const configFamily = config.theme.fontFamily
 
-      configColor.desaturatedBlue = "#1d1e35";
-      configColor.softRed = "#bf342a";
-      configColor.softViolet = "#af67e9";
-      configColor.softBlue = "#6565e7";
-      configColor.darkGray = "#4a4b5e";
-      configColor.grayBlue = "#787887";
-      configColor.lightGrayBlue = "#e7e7e9";
-      configFamily.kumbhSans = '"Kumbh Sans",' + configFamily.mono;
-    </script>
-    <style>
-      [un-cloak] {
-        display: none;
-      }
-    </style>
+			configColor.desaturatedBlue = "#1d1e35"
+			configColor.softRed = "#bf342a"
+			configColor.softViolet = "#af67e9"
+			configColor.softBlue = "#6565e7"
+			configColor.darkGray = "#4a4b5e"
+			configColor.grayBlue = "#787887"
+			configColor.lightGrayBlue = "#e7e7e9"
+			configFamily.kumbhSans = '"Kumbh Sans",' + configFamily.mono
+		</script>
+		<style>
+			[un-cloak] {
+				display: none;
+			}
+		</style>
 
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
-    ></script>
-    <script src="//unpkg.com/alpinejs" defer></script>
-    <script>
-      document.addEventListener("alpine:init", () => {
-        Alpine.data("faq", () => ({
-          onHover: false,
-          currOpen: 2,
-          questions: [
-            {
-              id: 1,
-              q: "How many team members can I invite?",
-              a: "You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.",
-            },
-            {
-              id: 2,
-              q: "What is the maximum file upload size?",
-              a: "No more than 2GB. All files in your account must fit your allotted storage space.",
-            },
-            {
-              id: 3,
-              q: "How do I reset my password?",
-              a: "Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you.",
-            },
-            {
-              id: 4,
-              q: "Can I cancel my subscription?",
-              a: "Yes! Send us a message and we’ll process your request no questions asked.",
-            },
-            {
-              id: 5,
-              q: "Do you provide additional support?",
-              a: "Chat and email support is available 24/7. Phone lines are open during normal business hours.",
-            },
-          ],
-        }));
-      });
-    </script>
-  </head>
-  <body
-    x-data="faq"
-    class="font-kumbhSans text-3.3 flex justify-center bg-fuchsia-700 text-gray-blue"
-    un-cloak
-  >
-    <div class="w-81.8 relative mt-32" md="w-230 h-127.4">
-      <div
-        md="bg-[url(images/illustration-box-desktop.svg)] bg-no-repeat absolute inset-0 h-40 w-50 pointer-events-none z-2 top-51 -left-23.5 transition-all duration-500"
-        :style="onHover && 'left:-8rem'"
-      ></div>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+		></script>
+		<script src="//unpkg.com/alpinejs" defer></script>
+		<script>
+			document.addEventListener("alpine:init", () => {
+				Alpine.data("faq", () => ({
+					onHover: false,
+					currOpen: 2,
+					questions: [
+						{
+							id: 1,
+							q: "How many team members can I invite?",
+							a: "You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.",
+						},
+						{
+							id: 2,
+							q: "What is the maximum file upload size?",
+							a: "No more than 2GB. All files in your account must fit your allotted storage space.",
+						},
+						{
+							id: 3,
+							q: "How do I reset my password?",
+							a: "Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you.",
+						},
+						{
+							id: 4,
+							q: "Can I cancel my subscription?",
+							a: "Yes! Send us a message and we’ll process your request no questions asked.",
+						},
+						{
+							id: 5,
+							q: "Do you provide additional support?",
+							a: "Chat and email support is available 24/7. Phone lines are open during normal business hours.",
+						},
+					],
+				}))
+			})
+		</script>
+	</head>
+	<body
+		x-data="faq"
+		class="flex flex-col items-center justify-center mx-auto font-kumbhSans text-3.3 text-gray-blue bg-gradient-to-b from-soft-violet to-soft-blue bg-no-repeat h-screen"
+		un-cloak
+	>
+		<div class="w-81.8 relative mt-32" md="w-230 h-127.4">
+			<div
+				md="bg-[url(images/illustration-box-desktop.svg)] bg-no-repeat absolute inset-0 h-40 w-50 pointer-events-none z-2 top-51 -left-23.5 transition-all duration-500"
+				:style="onHover && 'left:-8rem'"
+			></div>
 
-      <div
-        class="bg-white relative p-6 pt-16 pb-12.5 rounded-6.2 h-full"
-        md="overflow-hidden"
-      >
-        <div
-          class="bg-[url(images/bg-pattern-mobile.svg)] bg-no-repeat absolute w-59 h-30 top-0 mx-auto inset-0 pointer-events-none"
-          md="bg-[url(images/bg-pattern-desktop.svg)] inset-0 w-250 h-200 -left-270 -top-73.5"
-        ></div>
-        <div
-          class="bg-[url(images/illustration-woman-online-mobile.svg)] bg-no-repeat absolute w-59 h-59 -top-27 mx-auto inset-0 pointer-events-none"
-          md="bg-[url(images/illustration-woman-online-desktop.svg)] absolute inset-0 h-90 w-120 -left-152 top-17.5"
-        ></div>
-        <div class="mt-15.5" md="-mt-5 ml-113 mr-21.5">
-          <h1 class="text-8 font-700 text-center text-dark-gray" md="text-left">
-            FAQ
-          </h1>
-          <div
-            class="mt-2.6"
-            md="mt-3.5 text-3.5"
-            @mouseover="onHover = true"
-            @mouseout="onHover = false"
-          >
-            <template x-for="question in questions">
-              <div
-                class="flex justify-between items-start py-3.8 border-b bt-light-gray-blue cursor-pointer hover:text-soft-red"
-                md=""
-                :key="question.id"
-                @click="currOpen = question.id"
-              >
-                <div class="select-none cursor-pointer">
-                  <span
-                    x-text="question.q"
-                    :class="currOpen ===	 question.id && 'font-700 text-dark-gray'"
-                  ></span>
-                  <p
-                    x-show="currOpen === question.id"
-                    x-text="question.a"
-                    class="mt-2.7 text-3 text-gray-blue"
-                    md="mt-2.2"
-                    x-collapse
-                  ></p>
-                </div>
-                <img
-                  src="images/icon-arrow-down.svg"
-                  alt=""
-                  class="mt-2"
-                  :class="currOpen === question.id && 'rotate-180'"
-                />
-              </div>
-            </template>
-          </div>
-        </div>
-      </div>
-    </div>
+			<div
+				class="bg-white relative p-6 pt-16 pb-12.5 rounded-6.2 h-full shadow-2xl"
+				md="overflow-hidden"
+			>
+				<div
+					class="bg-[url(images/bg-pattern-mobile.svg)] bg-no-repeat absolute w-59 h-30 top-0 mx-auto inset-0 pointer-events-none"
+					md="bg-[url(images/bg-pattern-desktop.svg)] inset-0 w-250 h-200 -left-270 -top-73.5"
+				></div>
+				<div
+					class="bg-[url(images/illustration-woman-online-mobile.svg)] bg-no-repeat absolute w-59 h-59 -top-27 mx-auto inset-0 pointer-events-none"
+					md="bg-[url(images/illustration-woman-online-desktop.svg)] absolute inset-0 h-90 w-120 -left-152 top-17.5"
+				></div>
+				<div class="mt-15.5" md="-mt-1 ml-113 mr-21.5">
+					<h1
+						class="text-8 font-700 text-center text-dark-gray"
+						md="text-left"
+					>
+						FAQ
+					</h1>
+					<div
+						class="mt-2.6"
+						md="mt-3.5 text-3.5"
+						@mouseover="onHover = true"
+						@mouseout="onHover = false"
+					>
+						<template x-for="question in questions">
+							<div
+								class="flex justify-between items-start py-3.8 border-b bt-light-gray-blue cursor-pointer hover:text-soft-red"
+								md=""
+								:key="question.id"
+								@click="currOpen = question.id"
+							>
+								<div class="select-none cursor-pointer">
+									<span
+										x-text="question.q"
+										:class="currOpen ===	 question.id && 'font-700 text-dark-gray'"
+									></span>
+									<p
+										x-show="currOpen === question.id"
+										x-text="question.a"
+										class="mt-2.7 text-3 text-gray-blue"
+										md="mt-2.2"
+										x-collapse
+									></p>
+								</div>
+								<img
+									src="images/icon-arrow-down.svg"
+									alt=""
+									class="mt-2"
+									:class="currOpen === question.id && 'rotate-180'"
+								/>
+							</div>
+						</template>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    <!-- <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
-  </body>
+		<div class="text-white mt-4 opacity-50">
+			Challenge by
+			<a
+				href="https://www.frontendmentor.io?ref=challenge"
+				target="_blank"
+				class="underline cursor-pointer"
+				>Frontend Mentor</a
+			>. Coded by
+			<a
+				href="https://reshaditiya.com"
+				target="_blank"
+				class="underline cursor-pointer"
+				>Resha Aditiya</a
+			>.
+		</div>
+	</body>
 </html>
