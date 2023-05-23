@@ -51,6 +51,7 @@
     <script>
       document.addEventListener("alpine:init", () => {
         Alpine.data("faq", () => ({
+          onHover: false,
           currOpen: 2,
           questions: [
             {
@@ -84,44 +85,65 @@
     </script>
   </head>
   <body
+    x-data="faq"
     class="font-kumbhSans text-3.3 flex justify-center bg-fuchsia-700 text-gray-blue"
     un-cloak
   >
-    <div class="w-81.8 p-6 pt-16 pb-12.5 bg-white relative rounded-6.2 mt-32" md="w-230">
-      <img
-        src="images/illustration-woman-online-mobile.svg"
-        alt=""
-        class="absolute w-59 -top-27 mx-auto inset-0"
-				md="mx-0 top-0 left-0"
-      />
-      <h1 class="text-8 font-700 mt-15.5 text-center text-dark-gray">FAQ</h1>
-      <div class="mt-2.6">
-        <template x-data="faq" x-for="question in questions">
-          <div
-            class="flex justify-between items-start py-3.8 border-b bt-light-gray-blue cursor-pointer hover:text-soft-red"
-            :key="question.id"
-            @click="currOpen = question.id"
-          >
-            <div class="select-none cursor-pointer">
-              <span
-                x-text="question.q"
-                :class="currOpen === question.id && 'font-700 text-dark-gray'"
-              ></span>
-              <p
-                x-show="currOpen === question.id"
-                x-text="question.a"
-                class="mt-2.7 text-3 text-gray-blue"
-                x-collapse
-              ></p>
-            </div>
-            <img
-              src="images/icon-arrow-down.svg"
-              alt=""
-              class="mt-2"
-              :class="currOpen === question.id && 'rotate-180'"
-            />
+    <div class="w-81.8 relative mt-32" md="w-230 h-127.4">
+      <div
+        md="bg-[url(images/illustration-box-desktop.svg)] bg-no-repeat absolute inset-0 h-40 w-50 pointer-events-none z-2 top-51 -left-23.5"
+				:class="onHover && 'bg-red-400 mr-20'"
+      ></div>
+      <div
+        class="bg-white relative p-6 pt-16 pb-12.5 rounded-6.2 h-full"
+        md="overflow-hidden"
+      >
+        <div
+          class="bg-[url(images/bg-pattern-mobile.svg)] bg-no-repeat absolute w-59 h-30 top-0 mx-auto inset-0 pointer-events-none"
+          md="bg-[url(images/bg-pattern-desktop.svg)] inset-0 w-250 h-200 -left-270 -top-73.5"
+        ></div>
+        <div
+          class="bg-[url(images/illustration-woman-online-mobile.svg)] bg-no-repeat absolute w-59 h-59 -top-27 mx-auto inset-0 pointer-events-none"
+          md="bg-[url(images/illustration-woman-online-desktop.svg)] absolute inset-0 h-90 w-120 -left-152 top-17.5"
+        ></div>
+        <span x-text="onHover"></span>
+        <div class="mt-15.5" md="-mt-5 ml-113 mr-21.5">
+          <h1 class="text-8 font-700 text-center text-dark-gray" md="text-left">
+            FAQ
+          </h1>
+          <div class="mt-2.6" md="mt-3.5 text-3.5">
+            <template x-for="question in questions">
+              <div
+                class="flex justify-between items-start py-3.8 border-b bt-light-gray-blue cursor-pointer hover:text-soft-red"
+                md=""
+                :key="question.id"
+                @click="currOpen = question.id"
+                @mouseover="onHover = true"
+                @mouseout="onHover = false"
+              >
+                <div class="select-none cursor-pointer">
+                  <span
+                    x-text="question.q"
+                    :class="currOpen ===	 question.id && 'font-700 text-dark-gray'"
+                  ></span>
+                  <p
+                    x-show="currOpen === question.id"
+                    x-text="question.a"
+                    class="mt-2.7 text-3 text-gray-blue"
+                    md="mt-2.2"
+                    x-collapse
+                  ></p>
+                </div>
+                <img
+                  src="images/icon-arrow-down.svg"
+                  alt=""
+                  class="mt-2"
+                  :class="currOpen === question.id && 'rotate-180'"
+                />
+              </div>
+            </template>
           </div>
-        </template>
+        </div>
       </div>
     </div>
 
