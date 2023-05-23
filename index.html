@@ -91,9 +91,10 @@
   >
     <div class="w-81.8 relative mt-32" md="w-230 h-127.4">
       <div
-        md="bg-[url(images/illustration-box-desktop.svg)] bg-no-repeat absolute inset-0 h-40 w-50 pointer-events-none z-2 top-51 -left-23.5"
-				:class="onHover && 'bg-red-400 mr-20'"
+        md="bg-[url(images/illustration-box-desktop.svg)] bg-no-repeat absolute inset-0 h-40 w-50 pointer-events-none z-2 top-51 -left-23.5 transition-all duration-500"
+        :style="onHover && 'left:-8rem'"
       ></div>
+
       <div
         class="bg-white relative p-6 pt-16 pb-12.5 rounded-6.2 h-full"
         md="overflow-hidden"
@@ -106,7 +107,6 @@
           class="bg-[url(images/illustration-woman-online-mobile.svg)] bg-no-repeat absolute w-59 h-59 -top-27 mx-auto inset-0 pointer-events-none"
           md="bg-[url(images/illustration-woman-online-desktop.svg)] absolute inset-0 h-90 w-120 -left-152 top-17.5"
         ></div>
-        <span x-text="onHover"></span>
         <div class="mt-15.5" md="-mt-5 ml-113 mr-21.5">
           <h1 class="text-8 font-700 text-center text-dark-gray" md="text-left">
             FAQ
