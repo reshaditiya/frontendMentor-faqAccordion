@@ -89,7 +89,7 @@
 		class="flex flex-col items-center justify-center mx-auto font-kumbhSans text-3.3 text-gray-blue bg-gradient-to-b from-soft-violet to-soft-blue bg-no-repeat h-screen mt-20"
 		un-cloak
 	>
-		<div class="w-81.8 relative " md="w-230">
+		<div class="w-81.8 relative" md="w-230">
 			<div
 				md="bg-[url(images/illustration-box-desktop.svg)] bg-no-repeat absolute inset-0 h-40 w-50 pointer-events-none z-2 top-51 -left-23.5 transition-all duration-500"
 				:style="onHover && 'left:-8rem'"
@@ -114,18 +114,19 @@
 					>
 						FAQ
 					</h1>
-					<div
-						class="mt-2.6"
-						md="mt-3.5 text-3.5"
-						@mouseover="onHover = true"
-						@mouseout="onHover = false"
-					>
+					<div class="mt-2.6" md="mt-3.5 text-3.5">
 						<template x-for="question in questions">
 							<div
 								class="flex justify-between items-start py-3.8 border-b bt-light-gray-blue cursor-pointer hover:text-soft-red"
 								md=""
 								:key="question.id"
 								@click="currOpen = question.id"
+								@keyup.enter="currOpen = question.id"
+								@mouseover="onHover = true"
+								@mouseout="onHover = false"
+								@focusin="onHover = true"
+								@focusout="onHover = false"
+								tabindex="0"
 							>
 								<div class="select-none cursor-pointer">
 									<span
