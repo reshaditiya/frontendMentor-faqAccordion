@@ -111,15 +111,18 @@
           <h1 class="text-8 font-700 text-center text-dark-gray" md="text-left">
             FAQ
           </h1>
-          <div class="mt-2.6" md="mt-3.5 text-3.5">
+          <div
+            class="mt-2.6"
+            md="mt-3.5 text-3.5"
+            @mouseover="onHover = true"
+            @mouseout="onHover = false"
+          >
             <template x-for="question in questions">
               <div
                 class="flex justify-between items-start py-3.8 border-b bt-light-gray-blue cursor-pointer hover:text-soft-red"
                 md=""
                 :key="question.id"
                 @click="currOpen = question.id"
-                @mouseover="onHover = true"
-                @mouseout="onHover = false"
               >
                 <div class="select-none cursor-pointer">
                   <span
