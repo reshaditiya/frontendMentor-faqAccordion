@@ -87,11 +87,12 @@
     class="font-kumbhSans text-3.3 flex justify-center bg-fuchsia-700 text-gray-blue"
     un-cloak
   >
-    <div class="w-81.8 p-6 pt-16 pb-12.5 bg-white relative rounded-6.2 mt-37">
+    <div class="w-81.8 p-6 pt-16 pb-12.5 bg-white relative rounded-6.2 mt-32" md="w-230">
       <img
         src="images/illustration-woman-online-mobile.svg"
         alt=""
         class="absolute w-59 -top-27 mx-auto inset-0"
+				md="mx-0 top-0 left-0"
       />
       <h1 class="text-8 font-700 mt-15.5 text-center text-dark-gray">FAQ</h1>
       <div class="mt-2.6">
@@ -99,12 +100,12 @@
           <div
             class="flex justify-between items-start py-3.8 border-b bt-light-gray-blue cursor-pointer hover:text-soft-red"
             :key="question.id"
-            x-on:click="currOpen = question.id"
+            @click="currOpen = question.id"
           >
             <div class="select-none cursor-pointer">
               <span
                 x-text="question.q"
-                x-bind:class="currOpen === question.id && 'font-700 text-dark-gray'"
+                :class="currOpen === question.id && 'font-700 text-dark-gray'"
               ></span>
               <p
                 x-show="currOpen === question.id"
@@ -113,7 +114,12 @@
                 x-collapse
               ></p>
             </div>
-            <img src="images/icon-arrow-down.svg" alt="" class="mt-2" :class="currOpen === question.id && 'rotate-180'" />
+            <img
+              src="images/icon-arrow-down.svg"
+              alt=""
+              class="mt-2"
+              :class="currOpen === question.id && 'rotate-180'"
+            />
           </div>
         </template>
       </div>
