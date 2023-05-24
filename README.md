@@ -48,4 +48,4 @@ Users should be able to:
 ## Author
 
 - Website - [Resha Aditiya](https://reshaditiya.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/reshaditiya)
+- Frontend Mentor - [@reshaditiya](https://www.frontendmentor.io/profile/reshaditiya)
